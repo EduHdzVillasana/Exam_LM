@@ -1,0 +1,42 @@
+﻿@{
+    Layout = null;
+}
+@model Exam_LM.Models.articuloModel
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="widht=device-widht" />
+    <title>Page2</title>
+</head>
+<body>
+    <h1>Hola Mundo!! Parte 2</h1>
+    <br />
+    <h2>@Model.nombre</h2>
+    <br />
+    <h2>@Model.precio</h2>
+    <br />
+    <h2>@Model.iva</h2>
+    <br />
+    <h2>@Model.cantidad</h2>
+    <br />
+    <table>
+        <tr>
+            <td>Id_Articulo</td>
+            <td>Nombre</td>
+            <td>Precio</td>
+            <td>Iva</td>
+            <td>Cantidad</td>
+        </tr>
+        @foreach (var art in ViewBag.art)
+        {
+            <tr>
+                <td>@art.IdArticulo</td>
+                <td>@art.Nombre</td>
+                <td>@art.Precio</td>
+                <td>@art.Iva</td>
+                <td>@art.Cantidad</td>
+            </tr>
+        }
+    </table>
+</body>
+</html>
