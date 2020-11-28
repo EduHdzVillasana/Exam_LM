@@ -1,0 +1,44 @@
+﻿@{
+    Layout = null;
+}
+@model Examen2.Models.Login
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Cambia los datos que se quieran actualizar</h1>
+        <br><br>
+        <div class="row">
+            <div class="col-sm">
+                <form asp-action="Update" method="post">
+                    <div class="form-group">
+                        <label>Nombre:  </label> <input asp-for="Nombre" value=@ViewBag.Nombre />
+                        <br />
+                        <label>Precio:  </label> <input asp-for="Precio" value=@ViewBag.Precio />
+                        <br />
+                        <label>Iva:     </label> <input asp-for="Iva" value=@ViewBag.Iva />
+                        <br />
+                        <label>Cantidad:</label> <input asp-for="Cantidad" value=@ViewBag.Cantidad />
+                        <br />
+                        <input asp-for="email" type="hidden" value=@ViewBag.email />
+                        <input asp-for="password" type="hidden" value=@ViewBag.pass />
+                        <input asp-for="IdArticulo" type="hidden" value=@ViewBag.IdArticulo />
+                        <button class="btn btn-primary" type="submit">Actualizar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <br>
+        <form asp-action="Index" method="post">
+            <input asp-for="email" type="hidden" value=@ViewBag.email />
+            <input asp-for="password" type="hidden" value=@ViewBag.pass />
+            <input class="btn btn-secondary" type="submit" value="Volver" />
+        </form>
+    </div>
+</body>
+</html>

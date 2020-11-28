@@ -1,0 +1,74 @@
+﻿@{
+    Layout = null;
+}
+@model Examen2.Models.Login
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Pais PIA</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Pais PIA</title>
+</head>
+<body>
+    <h1>Tabla de Articulos</h1>    
+    <form asp-action="Index" method="post">
+        <input asp-for="email" type="hidden" value=@ViewBag.email />
+        <input asp-for="password" type="hidden" value=@ViewBag.pass />
+        <input class="btn btn-secondary" type="submit" value="Volver a Menu" />
+    </form>
+    <br />
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Id_articulo</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Iva</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var art in ViewBag.arts)
+            {
+                <tr>
+                    <th>@art.IdArticulo</th>
+                    <td>@art.Nombre</td>
+                    <td>@art.Precio</td>
+                    <td>@art.Iva</td>
+                    <td>@art.Cantidad</td>
+                    @if (ViewBag.modo == 2)
+                    {
+                        <td>
+                            <form asp-action="Actualizar" method="post">
+                                <input asp-for="IdArticulo" type="hidden" value=@art.IdArticulo />
+                                <input asp-for="email" type="hidden" value=@ViewBag.email />
+                                <input asp-for="password" type="hidden" value=@ViewBag.pass />
+                                <input class="btn btn-primary" type="submit" value="Actualizar" />
+                            </form>
+                        </td>
+                    }
+                    @if (ViewBag.modo == 3)
+                    {
+                        <td>
+                            <form asp-action="Delete" method="post">
+                                <input asp-for="IdArticulo" type="hidden" value=@art.IdArticulo />
+                                <input asp-for="email" type="hidden" value=@ViewBag.email />
+                                <input asp-for="password" type="hidden" value=@ViewBag.pass />
+                                <input class="btn btn-danger" type="submit" value="Eliminar" />
+                            </form>
+                        </td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+    <form asp-action="Index" method="post">
+        <input asp-for="email" type="hidden" value=@ViewBag.email />
+        <input asp-for="password" type="hidden" value=@ViewBag.pass />
+        <input class="btn btn-secondary" type="submit" value="Volver a Menu" />
+    </form>
+</body>
+</html>

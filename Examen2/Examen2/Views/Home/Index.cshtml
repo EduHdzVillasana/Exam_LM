@@ -1,0 +1,78 @@
+﻿@{
+    Layout = null;
+}
+@model Examen2.Models.Login
+<!DOCTYPE html>
+
+<html>
+<head>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+</head>
+<body>
+    <div class="container">
+        <br>
+        <!--insert.jsp?nombre=Rusia-->
+        @if (ViewBag.start == 1)
+        {
+            <h1>Login</h1>
+            <br>
+            <!--
+        <form asp-action="Visualizar" method="post">
+            <input asp-for="modo" type="hidden" value=1 />
+            <input class="btn btn-secondary" type="submit" value="Añadir" />
+        </form>
+        -->
+            <form asp-action="Index" method="post">
+                <input asp-for="email" placeholder="Email" />
+                <br /><br />
+                <input asp-for="password" type="password" placeholder="Contraseña" />
+                <br /><br />
+                <input asp-for="modo" type="hidden" value=-1 />
+                <button class="btn btn-secondary" type="submit">Entrar</button>
+            </form>
+            if (ViewBag.login_failed == 1)
+            {
+                <script>
+                    alert('Correo o contraseña incorrectos')
+                </script>
+
+            }
+        }
+        else
+        {
+            <h1>Sesion Iniciada, bienbenido @ViewBag.name</h1>
+            <br /><br />
+            <form asp-action="Añadir" method="post">
+                <input asp-for="modo" type="hidden" value=0 />
+                <input asp-for="email" type="hidden" value=@ViewBag.email />
+                <input asp-for="password" type="hidden" value=@ViewBag.pass />
+                <input class="btn btn-secondary" type="submit" value="Añadir" />
+            </form>
+            <br />
+            <form asp-action="Visualizar" method="post">
+                <input asp-for="modo" type="hidden" value=1 />
+                <input asp-for="email" type="hidden" value=@ViewBag.email />
+                <input asp-for="password" type="hidden" value=@ViewBag.pass />
+                <input class="btn btn-secondary" type="submit" value="Ver Todos" />
+            </form>
+            <br />
+            <form asp-action="Visualizar" method="post">
+                <input asp-for="modo" type="hidden" value=2 />
+                <input asp-for="email" type="hidden" value=@ViewBag.email />
+                <input asp-for="password" type="hidden" value=@ViewBag.pass />
+                <input class="btn btn-secondary" type="submit" value="Actualizar" />
+            </form>
+            <br />
+            <form asp-action="Visualizar" method="post">
+                <input asp-for="modo" type="hidden" value=3 />
+                <input asp-for="email" type="hidden" value=@ViewBag.email />
+                <input asp-for="password" type="hidden" value=@ViewBag.pass />
+                <input class="btn btn-secondary" type="submit" value="Eliminar" />
+            </form>
+        }
+    </div>
+</body>
+</html>

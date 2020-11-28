@@ -36,9 +36,22 @@ namespace Exam_LM.Controllers
             // Step 1 - Connect to the DB
             using (var context = new tiendaContext())
             {
-                var articulos = context.Articulos.ToList().Take(10);
+
+
+                var art = new Articulo
+                {
+                    Nombre = articulo.nombre,
+                    Precio = articulo.precio,
+                    Iva = articulo.iva,
+                    Cantidad = articulo.cantidad
+                };
+                context.Add(art);
+                context.SaveChanges();
+
+                var articulos = context.Articulos.ToList().TakeLast(10);
                 ViewBag.art = articulos;
             }
+
             return View(articulo);
         }
 
