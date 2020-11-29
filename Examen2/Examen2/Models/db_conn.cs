@@ -7,12 +7,13 @@ namespace Examen2.Models
 {
     public class db_conn
     {
-        public static string LoginCheck(Login log)
+        public static string LoginCheck(Login log) //checa si email y pass es correcto
         {
             string result = "";
             using (tiendaContext db = new tiendaContext())
             {
                 var usuarios = db.Usuarios.Where(s => s.Email == log.email && s.Password == log.password).ToList();
+                // USO DE FUNCIONES LAMBDA
                 if (usuarios.Count == 1)
                 {
                     result = usuarios[0].Nombre;
@@ -21,7 +22,7 @@ namespace Examen2.Models
             return result;
         } 
 
-        public static int addArticulo (Login art)
+        public static int addArticulo (CRUD art)//agrega a la base de datos el articulo
         {
             int result = 1;
             try
@@ -39,20 +40,20 @@ namespace Examen2.Models
                     db.SaveChanges();
                 }
             }
-            catch (Exception e)
+            catch (Exception e) // USO DE FRIENDLY EXCEPTION
             {
                 result = 2;
             }
             return result;
         }
-        public static int updateArticulo(Login art)
+        public static int updateArticulo(CRUD art)
         {
             int result = 1;
             try
             {
                 using (var db = new tiendaContext())
                 {
-                    var articulo = db.Articulos.Where(s => s.IdArticulo == art.IdArticulo).First();
+                    var articulo = db.Articulos.Where(s => s.IdArticulo == art.IdArticulo).First(); // FUNCIONE LAMBDA
                     articulo.Nombre = art.Nombre;
                     articulo.Precio = art.Precio;
                     articulo.Iva = art.Iva;
@@ -60,13 +61,13 @@ namespace Examen2.Models
                     db.SaveChanges();
                 }
             }
-            catch (Exception e)
+            catch (Exception e) // FRIENDLY EXCEPTION
             {
                 result = 2;
             }
             return result;
         }
-        public static int deleteArticulo(Login art)
+        public static int deleteArticulo(CRUD art)
         {
             int result = 1;
             try
@@ -81,7 +82,7 @@ namespace Examen2.Models
             catch (Exception e)
             {
                 result = 2;
-                Console.WriteLine(e);
+                //Console.WriteLine(e);
             }
             return result;
         }

@@ -1,7 +1,7 @@
 ﻿@{
     Layout = null;
 }
-@model Examen2.Models.Login
+@model Examen2.Models.CRUD
 
     <!DOCTYPE html>
     <html>
@@ -25,19 +25,13 @@
                             <br />
                             <label>Cantidad:</label> <input asp-for="Cantidad" />
                             <br />
-                            <input asp-for="email" type="hidden" value=@ViewBag.email />
-                            <input asp-for="password" type="hidden" value=@ViewBag.pass />
                             <button class="btn btn-primary" type="submit">Añadir</button>
                         </div>
                     </form>
                 </div>
             </div>
             <br>
-            <form asp-action="Index" method="post">
-                <input asp-for="email" type="hidden" value=@ViewBag.email />
-                <input asp-for="password" type="hidden" value=@ViewBag.pass />
-                <input class="btn btn-secondary" type="submit" value="Volver" />
-            </form>
+            <a class="btn btn-secondary" href="@Url.Action("Index","Home")">Volver al Menu</a>
         </div>
     </body>
 </html>

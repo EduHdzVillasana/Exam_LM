@@ -14,17 +14,10 @@
 <body>
     <div class="container">
         <br>
-        <!--insert.jsp?nombre=Rusia-->
-        @if (ViewBag.start == 1)
+        @if (ViewBag.start == 1) // Mostrar el Login
         {
             <h1>Login</h1>
             <br>
-            <!--
-        <form asp-action="Visualizar" method="post">
-            <input asp-for="modo" type="hidden" value=1 />
-            <input class="btn btn-secondary" type="submit" value="Añadir" />
-        </form>
-        -->
             <form asp-action="Index" method="post">
                 <input asp-for="email" placeholder="Email" />
                 <br /><br />
@@ -41,38 +34,76 @@
 
             }
         }
-        else
+        else // Mostrar el Menu
         {
-            <h1>Sesion Iniciada, bienbenido @ViewBag.name</h1>
+            <div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col"><h1>Sesion Iniciada, bienvenido @ViewBag.name</h1></th>
+                            <th scope="col"><a class="btn btn-dark" href="@Url.Action("LogOut","Home")">Cerrar Sesion</a></th>
+
+                        </tr>
+                    </thead>
+                </table>
+            </div>
             <br /><br />
-            <form asp-action="Añadir" method="post">
-                <input asp-for="modo" type="hidden" value=0 />
-                <input asp-for="email" type="hidden" value=@ViewBag.email />
-                <input asp-for="password" type="hidden" value=@ViewBag.pass />
-                <input class="btn btn-secondary" type="submit" value="Añadir" />
-            </form>
+            <a class="btn btn-secondary" href="@Url.Action("Añadir","Home")">Añadir</a>
+            <br />
             <br />
             <form asp-action="Visualizar" method="post">
                 <input asp-for="modo" type="hidden" value=1 />
-                <input asp-for="email" type="hidden" value=@ViewBag.email />
-                <input asp-for="password" type="hidden" value=@ViewBag.pass />
                 <input class="btn btn-secondary" type="submit" value="Ver Todos" />
             </form>
             <br />
             <form asp-action="Visualizar" method="post">
                 <input asp-for="modo" type="hidden" value=2 />
-                <input asp-for="email" type="hidden" value=@ViewBag.email />
-                <input asp-for="password" type="hidden" value=@ViewBag.pass />
                 <input class="btn btn-secondary" type="submit" value="Actualizar" />
             </form>
             <br />
             <form asp-action="Visualizar" method="post">
                 <input asp-for="modo" type="hidden" value=3 />
-                <input asp-for="email" type="hidden" value=@ViewBag.email />
-                <input asp-for="password" type="hidden" value=@ViewBag.pass />
                 <input class="btn btn-secondary" type="submit" value="Eliminar" />
             </form>
+            switch (ViewBag.r) // Saber que alert mostrar segun el resultado
+            {
+                case 1:
+                    <script>
+                        alert('Se añadio el artículo con exito')
+                    </script>
+                    break;
+                case 2:
+                    <script>
+                        alert('No se pudo añadir el articulo')
+                    </script>
+                    break;
+
+                case 3:
+                    <script>
+                        alert('Se actualizó el artículo con exito')
+                    </script>
+                    break;
+                case 4:
+                    <script>
+                        alert('No se pudo actualizar el articulo')
+                    </script>
+                    break;
+
+                case 5:
+                    <script>
+                        alert('Se eliminó el artículo con exito')
+                    </script>
+                    break;
+                case 6:
+                    <script>
+                        alert('No se pudo eliminar el articulo')
+                    </script>
+                    break;
+
+
+            }
         }
+
     </div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 ﻿@{
     Layout = null;
 }
-@model Examen2.Models.Login
+@model Examen2.Models.CRUD
 
 <!DOCTYPE html>
 <html>
@@ -23,11 +23,8 @@
         }
 
         <br>
-        <form asp-action="Index" method="post">
-            <input asp-for="email" type="hidden" value=@ViewBag.email />
-            <input asp-for="password" type="hidden" value=@ViewBag.pass />
-            <input class="btn btn-secondary" type="submit" value="Volver a menu" />
-        </form>
+        <a class="btn btn-secondary" href="@Url.Action("Index","Home")">Volver al Menu</a>
+
     </div>
 </body>
 </html>

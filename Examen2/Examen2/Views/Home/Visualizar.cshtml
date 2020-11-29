@@ -1,7 +1,7 @@
 ﻿@{
     Layout = null;
 }
-@model Examen2.Models.Login
+@model Examen2.Models.CRUD
 <!DOCTYPE html>
 
 <html>
@@ -12,12 +12,10 @@
     <title>Pais PIA</title>
 </head>
 <body>
-    <h1>Tabla de Articulos</h1>    
-    <form asp-action="Index" method="post">
-        <input asp-for="email" type="hidden" value=@ViewBag.email />
-        <input asp-for="password" type="hidden" value=@ViewBag.pass />
-        <input class="btn btn-secondary" type="submit" value="Volver a Menu" />
-    </form>
+    <h1>Tabla de Articulos</h1>
+
+    <a class="btn btn-secondary" href="@Url.Action("Index","Home")">Volver al Menu</a>
+    <br />
     <br />
     <table class="table">
         <thead class="thead-dark">
@@ -39,24 +37,20 @@
                     <td>@art.Precio</td>
                     <td>@art.Iva</td>
                     <td>@art.Cantidad</td>
-                    @if (ViewBag.modo == 2)
+                    @if (ViewBag.modo == 2) // Se muestra el boton de actualizar
                     {
                         <td>
                             <form asp-action="Actualizar" method="post">
                                 <input asp-for="IdArticulo" type="hidden" value=@art.IdArticulo />
-                                <input asp-for="email" type="hidden" value=@ViewBag.email />
-                                <input asp-for="password" type="hidden" value=@ViewBag.pass />
                                 <input class="btn btn-primary" type="submit" value="Actualizar" />
                             </form>
                         </td>
                     }
-                    @if (ViewBag.modo == 3)
+                    @if (ViewBag.modo == 3) // Se muestra el boton de eliminar
                     {
                         <td>
                             <form asp-action="Delete" method="post">
                                 <input asp-for="IdArticulo" type="hidden" value=@art.IdArticulo />
-                                <input asp-for="email" type="hidden" value=@ViewBag.email />
-                                <input asp-for="password" type="hidden" value=@ViewBag.pass />
                                 <input class="btn btn-danger" type="submit" value="Eliminar" />
                             </form>
                         </td>
@@ -65,10 +59,8 @@
             }
         </tbody>
     </table>
-    <form asp-action="Index" method="post">
-        <input asp-for="email" type="hidden" value=@ViewBag.email />
-        <input asp-for="password" type="hidden" value=@ViewBag.pass />
-        <input class="btn btn-secondary" type="submit" value="Volver a Menu" />
-    </form>
+    <br />
+    <a class="btn btn-secondary" href="@Url.Action("Index","Home")">Volver al Menu</a>
+
 </body>
 </html>
