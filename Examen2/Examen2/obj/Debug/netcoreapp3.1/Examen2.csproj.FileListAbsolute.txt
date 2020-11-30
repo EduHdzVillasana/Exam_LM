@@ -79,7 +79,4 @@ C:\Users\alana\Documents\GitHub\Exam_LM\Examen2\Examen2\bin\Debug\netcoreapp3.1\
 C:\Users\alana\Documents\GitHub\Exam_LM\Examen2\Examen2\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\alana\Documents\GitHub\Exam_LM\Examen2\Examen2\obj\Debug\netcoreapp3.1\Razor\Views\Home\Visualizar.cshtml.g.cs
 C:\Users\alana\Documents\GitHub\Exam_LM\Examen2\Examen2\obj\Debug\netcoreapp3.1\Razor\Views\Home\Añadir.cshtml.g.cs
-C:\Users\alana\Documents\GitHub\Exam_LM\Examen2\Examen2\obj\Debug\netcoreapp3.1\Razor\Views\Home\Insertar.cshtml.g.cs
 C:\Users\alana\Documents\GitHub\Exam_LM\Examen2\Examen2\obj\Debug\netcoreapp3.1\Razor\Views\Home\Actualizar.cshtml.g.cs
-C:\Users\alana\Documents\GitHub\Exam_LM\Examen2\Examen2\obj\Debug\netcoreapp3.1\Razor\Views\Home\Update.cshtml.g.cs
-C:\Users\alana\Documents\GitHub\Exam_LM\Examen2\Examen2\obj\Debug\netcoreapp3.1\Razor\Views\Home\Delete.cshtml.g.cs
